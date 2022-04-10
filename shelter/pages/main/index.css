@@ -247,6 +247,7 @@ button {
 
 .slider .slider__control {
   width: 52px;
+  min-width: 52px;
   height: 52px;
   border-radius: 50px;
   -webkit-border-radius: 50px;
@@ -418,6 +419,7 @@ button {
   display: flex;
   padding: 81px 40px 100px;
   justify-content: center;
+  background-color: #F6F6F6;
 }
 
 .donation .donation__pet {
