@@ -310,6 +310,10 @@ button {
   border-radius: 9px;
 }
 
+.slider .slider__gallery .slider__images .slider__elem .slider__elemWrapper:hover{
+  background-color: #fff;
+}
+
 .slider .slider__gallery .slider__images .slider__elem .slider__elemWrapper .slider__elemImg {
   max-width: 270px;
   max-height: 270px;
@@ -458,6 +462,10 @@ button {
   height: 43px;
   background: #F1CDB3;
   border-radius: 9px;
+}
+
+.donation .donation__discr .donation__cardLink:hover {
+  background-color: #FDDCC4;
 }
 
 .donation .donation__discr .donation__cardLink .donation__cardNum {
