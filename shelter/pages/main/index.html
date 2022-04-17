@@ -16,18 +16,27 @@
 
 <body class="page">
     <section class="startScreen page__startScreen">
-        <header class="header startScreen__header">
-            <a class="logo header__logo" href="./index.html">
-                <h1 class="logo__name">Cozy House</h1>
-                <p class="logo__discr">Shelter for pets in Boston</p>
-            </a>
-            <ul class="nav header__nav">
-                <li class="nav__item nav__item_active"> <a href="#"> About the shelter</a></li>
-                <li class="nav__item"> <a href="../pets/pets.html"> Our pets</a></li>
-                <li class="nav__item"> <a href="#help"> Help the shelter</a></li>
-                <li class="nav__item"> <a href="#contacts"> Contacts</a></li>
-            </ul>
-        </header>
+      <header class="header startScreen__header">
+        <a class="logo header__logo" href="./index.html">
+          <h1 class="logo__name">Cozy House</h1>
+          <p class="logo__discr">Shelter for pets in Boston</p>
+        </a>
+        <button class="mobileBtn" type="button">
+          <span class="mobileBtn__elem"></span>
+        </button>
+        <ul class="nav header__nav">
+          <a class="logo logo__mobile" href="./index.html">
+            <h1 class="logo__name">Cozy House</h1>
+            <p class="logo__discr">Shelter for pets in Boston</p>
+          </a>
+          <li class="nav__item nav__item_active">
+            <a href="#"> About the shelter</a>
+          </li>
+          <li class="nav__item"> <a href="../pets/pets.html"> Our pets</a></li>
+          <li class="nav__item"> <a href="#help"> Help the shelter</a></li>
+          <li class="nav__item"> <a href="#contacts"> Contacts</a></li>
+        </ul>
+      </header>
         <article class="mainContent startScreen__mainContent">
             <div class="mainContent__content">
                 <h2 class="mainContent__header">Not only people need a house</h2>
@@ -47,7 +56,10 @@
         </section>
         <section class="pets main__pets" id="ourFriends">
             <h3 class="heading pets__heading">Our friends who <br> are looking for a house</h3>
-            <div class="slider pets__slider"><button class="slider__control slider__controlLeft" type="button"><img src="../../assets/images/icons/left.svg" alt="left"></button>
+            <div class="slider pets__slider">
+              <button class="slider__control slider__controlLeft" type="button">
+                <img src="../../assets/images/icons/left.svg" alt="left">
+              </button>
                 <div class="slider__gallery">
                     <ul class="slider__images">
                         <li class="slider__elem">
@@ -76,7 +88,10 @@
                             </div>
                         </li>
                     </ul>
-                </div><button class="slider__control slider__controlLeft" type="button"><img src="../../assets/images/icons/right.svg" alt="right"></button>
+                </div>
+                <button class="slider__control slider__controlRight" type="button">
+                  <img src="../../assets/images/icons/right.svg" alt="right">
+                </button>
             </div><a class="btn pets__btn" href="../pets/pets.html" type="button">Get to know the rest</a>
         </section>
         <section class="help" id="help">
