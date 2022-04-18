@@ -286,7 +286,12 @@ button {
 
 .friendList .friend {
   text-align: center;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
+}
+
+.friendList .friend:hover {
+  background-color: #fff;
+
 }
 
 .friendList .friend:hover {

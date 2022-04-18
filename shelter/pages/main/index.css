@@ -817,6 +817,7 @@ button {
   .slider .slider__gallery .slider__images .slider__elem {
     flex: 0 0 100%;
   }
+
   .help .help__list {
     grid-template-columns: repeat(2, 1fr);
   }
