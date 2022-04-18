@@ -167,6 +167,7 @@ button {
 
 .nav .logo__mobile {
   display: none;
+  width: fit-content;
 }
 
 .nav .nav__item {
