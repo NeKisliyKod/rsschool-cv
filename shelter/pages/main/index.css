@@ -961,3 +961,8 @@ button {
     margin-top: 42px;
   }
 }
+@media (max-height: 595px) {
+  .nav .logo__mobile{
+    margin-bottom: 55px;
+  }
+}
