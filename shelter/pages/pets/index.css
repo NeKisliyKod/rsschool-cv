@@ -397,6 +397,30 @@ button {
   color: #F1CDB3;
 }
 
+@media (max-width: 1279px) {
+  .ourFriend {
+    padding: 80px 40px 77px;
+  }
+  .ourFriend .ourFriend__header {
+    margin: 0 auto 29px;
+  }
+  .ourFriend .ourFriends__controls {
+    margin: 14px 0 0 0;
+  }
+  .friendList {
+    align-content: center;
+    column-gap: 38px;
+    max-width: 580px;
+    margin: auto;
+  }
+  .friendList .friendList__friend {
+    margin-bottom: 30px;
+  }
+  .friendList .friend:nth-child(n + 7) {
+    display: none;
+  }
+}
+
 @media (max-width: 970px) {
   .footer {
     flex-wrap: wrap;
@@ -417,25 +441,6 @@ button {
 @media (max-width: 800px) {
   .header {
     padding: 30px 30px;
-  }
-  .ourFriend {
-    padding: 80px 40px 77px;
-  }
-  .ourFriend .ourFriend__header {
-    margin: 0 auto 29px;
-  }
-  .ourFriend .ourFriends__controls {
-    margin: 14px 0 0 0;
-  }
-  .friendList {
-    justify-content: center;
-    column-gap: 38px;
-  }
-  .friendList .friendList__friend {
-    margin-bottom: 30px;
-  }
-  .friendList .friend:nth-child(n + 7) {
-    display: none;
   }
 }
 
@@ -484,9 +489,6 @@ button {
     display: flex;
     right: 0;
   }
-}
-
-@media (max-width: 490px) {
   .ourFriend {
     padding: 41px 15px 44px;
   }
@@ -502,6 +504,12 @@ button {
   }
   .friendList {
     justify-content: center;
+    flex-direction: column;
+    max-width: unset;
+  }
+  .friendList .friend {
+    max-width: 270px;
+    margin: 0 auto 30px;
   }
   .friendList .friend:nth-child(n + 4) {
     display: none;
