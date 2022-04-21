@@ -514,6 +514,9 @@ button {
   .friendList .friend:nth-child(n + 4) {
     display: none;
   }
+}
+
+@media (max-width: 490px) {
   .footer {
     padding: 13px 10px 0px;
   }
@@ -546,6 +549,7 @@ button {
     margin-top: 42px;
   }
 }
+
 @media (max-height: 595px) {
   .nav .logo__mobile{
     margin-bottom: 55px;
