@@ -41,6 +41,18 @@ button {
   max-width: 1280px;
   margin: auto;
 }
+.page_unactive{
+  overflow: hidden;
+}
+.overlay{
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: #7b7b7ba8;
+  z-index: 6;
+  position: fixed;
+  top: 0;
+}
 
 .logo .logo__name {
   font-family: Georgia, sans-serif;
@@ -817,7 +829,6 @@ button {
   .slider .slider__gallery .slider__images .slider__elem {
     flex: 0 0 100%;
   }
-
   .help .help__list {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -965,4 +976,3 @@ button {
   .nav .logo__mobile{
     margin-bottom: 55px;
   }
-}
