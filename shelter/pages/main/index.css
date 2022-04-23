@@ -345,14 +345,60 @@ button {
   -moz-transition: all .5s ease-in-out .25s;
   -ms-transition: all .5s ease-in-out .25s;
   -o-transition: all .5s ease-in-out .25s;
+  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+}
+@keyframes move-left {
+  from {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+  }
+
+  to{
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+  }
+}
+@keyframes move-right {
+  from {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+  }
+
+  to{
+    transform: translateX(-200%);
+    -webkit-transform: translateX(-200%);
+    -moz-transform: translateX(-200%);
+    -ms-transform: translateX(-200%);
+    -o-transform: translateX(-200%);
+  }
+}
+
+.slider .slider__gallery .slider__images_moveLeft{
+  animation-name: move-left;
+  animation-duration: .6s;
+}
+.slider .slider__gallery .slider__images_moveRight{
+  animation-name: move-right;
+  animation-duration: .6s;
 }
 
 .slider .slider__gallery .slider__images .slider__elem {
-  flex: 0 0 27.26%;
-}
-
-.slider .slider__gallery .slider__images .slider__elem:not(:last-child) {
-  margin-right: 90px;
+  display: flex;
+  flex: 0 0 100%;
+  justify-content: space-between;
 }
 
 .slider .slider__gallery .slider__images .slider__elem .slider__elemWrapper {
@@ -360,7 +406,6 @@ button {
   height: 435px;
   min-width: 270px;
   max-width: 270px;
-  margin: 0 auto;
   text-align: center;
   border-radius: 9px;
 }
@@ -618,6 +663,15 @@ button {
   color: #F1CDB3;
 }
 
+@media (max-width: 1279px) {
+  .slider .slider__gallery .slider__images .slider__elem{
+    justify-content: space-around;
+  }
+  .slider .slider__gallery .slider__images .slider__elem .slider__elemWrapper:last-child {
+    display: none;
+  } 
+}
+
 @media (max-width: 1200px) {
   .header {
     padding: 30px 30px 60px;
@@ -643,36 +697,6 @@ button {
   .mainContent .mainContent__img {
     max-width: 569px;
     margin-left: auto;
-  }
-  .slider .slider__gallery .slider__images .slider__elem {
-    flex: 0 0 50%;
-  }
-  .slider .slider__gallery .slider__images .slider__elem:not(:last-child) {
-    margin-right: 0px;
-  }
-  
-  @keyframes flowLeft {
-    0% {
-      margin-right: 87px;
-    }
-    50% {
-      margin-right: 80px;
-    }
-    100% {
-      margin-right: 90px;
-    }
-  }
-
-  @keyframes flowRight {
-    0% {
-      margin-left: 0px;
-    }
-    50% {
-      margin-left: 17px;
-    }
-    100% {
-      margin-left: 0px;
-    }
   }
 }
 
@@ -826,9 +850,9 @@ button {
     display: flex;
     right: 0;
   }
-  .slider .slider__gallery .slider__images .slider__elem {
-    flex: 0 0 100%;
-  }
+  .slider .slider__gallery .slider__images .slider__elem .slider__elemWrapper:nth-child(n + 2) {
+    display: none;
+  } 
   .help .help__list {
     grid-template-columns: repeat(2, 1fr);
   }
