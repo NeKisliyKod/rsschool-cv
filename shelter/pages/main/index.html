@@ -60,42 +60,98 @@
         <section class="pets main__pets" id="ourFriends">
             <h3 class="heading pets__heading">Our friends who <br> are looking for a house</h3>
             <div class="slider pets__slider">
-              <button class="slider__control slider__controlLeft" type="button">
+              <button class="slider__control slider__controlLeft" id="leftBtn" type="button">
                 <img src="../../assets/images/icons/left.svg" alt="left">
               </button>
-                <div class="slider__gallery">
-                    <ul class="slider__images">
-                        <li class="slider__elem">
-                            <div class="slider__elemWrapper"><img class="slider__elemImg" src="../../assets/images/pets/katrine.png" alt="Katrine">
-                                <p class="slider__elemName">Katrine</p><button class="slider__elemBtn btn btn_invers" type="button">Learn more</button>
-                            </div>
-                        </li>
-                        <li class="slider__elem">
-                            <div class="slider__elemWrapper"><img class="slider__elemImg" src="../../assets/images/pets/jennifer.png" alt="Jennifer">
-                                <p class="slider__elemName">Jennifer</p><button class="slider__elemBtn btn btn_invers" type="button">Learn more</button>
-                            </div>
-                        </li>
-                        <li class="slider__elem">
-                            <div class="slider__elemWrapper"><img class="slider__elemImg" src="../../assets/images/pets/woody.png" alt="Woody">
-                                <p class="slider__elemName">Woody</p><button class="slider__elemBtn btn btn_invers" type="button">Learn more</button>
-                            </div>
-                        </li>
-                        <li class="slider__elem">
-                            <div class="slider__elemWrapper"><img class="slider__elemImg" src="../../assets/images/pets/timmy.png" alt="Timmy">
-                                <p class="slider__elemName">Woody</p><button class="slider__elemBtn btn btn_invers" type="button">Learn more</button>
-                            </div>
-                        </li>
-                        <li class="slider__elem">
-                            <div class="slider__elemWrapper"><img class="slider__elemImg" src="../../assets/images/pets/sophia.png" alt="Sophia">
-                                <p class="slider__elemName">Woody</p><button class="slider__elemBtn btn btn_invers" type="button">Learn more</button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <button class="slider__control slider__controlRight" type="button">
-                  <img src="../../assets/images/icons/right.svg" alt="right">
-                </button>
-            </div><a class="btn pets__btn" href="../pets/pets.html">Get to know the rest</a>
+              <div class="slider__gallery">
+                  <ul class="slider__images" id="slidesList">
+                    <li class="slider__elem">
+                      <div class="slider__elemWrapper">
+                        <img 
+                          class="slider__elemImg" 
+                          src="../../assets/images/pets/charly.png" 
+                          alt="Charly"
+                        >
+                        <p class="slider__elemName">Charly</p>
+                        <button 
+                          class="slider__elemBtn btn btn_invers" type="button">
+                          Learn more
+                        </button>
+                      </div>
+
+                      <div class="slider__elemWrapper">
+                        <img class="slider__elemImg" src="../../assets/images/pets/freddie.png" alt="Freddie">
+                        <p class="slider__elemName">Freddie</p>
+                        <button class="slider__elemBtn btn btn_invers" type="button">
+                          Learn more
+                        </button>
+                      </div>
+
+                      <div class="slider__elemWrapper">
+                        <img class="slider__elemImg" src="../../assets/images/pets/timmy.png" alt="Timmy">
+                        <p class="slider__elemName">Timmy</p><button class="slider__elemBtn btn btn_invers" type="button">
+                          Learn more
+                        </button>
+                      </div>
+                    </li>
+
+                    <li class="slider__elem">
+                      <div class="slider__elemWrapper">
+                        <img 
+                          class="slider__elemImg" 
+                          src="../../assets/images/pets/katrine.png" 
+                          alt="Katrine"
+                        >
+                        <p class="slider__elemName">Katrine</p>
+                        <button 
+                          class="slider__elemBtn btn btn_invers" type="button">
+                          Learn more
+                        </button>
+                      </div>
+
+                      <div class="slider__elemWrapper"><img class="slider__elemImg" src="../../assets/images/pets/jennifer.png" alt="Jennifer">
+                        <p class="slider__elemName">Jennifer</p><button class="slider__elemBtn btn btn_invers" type="button">Learn more</button>
+                      </div>
+
+                      <div class="slider__elemWrapper"><img class="slider__elemImg" src="../../assets/images/pets/woody.png" alt="Woody">
+                        <p class="slider__elemName">Woody</p><button class="slider__elemBtn btn btn_invers" type="button">Learn more</button>
+                      </div>
+                    </li>
+
+                    <li class="slider__elem">
+                      <div class="slider__elemWrapper">
+                        <img 
+                          class="slider__elemImg" 
+                          src="../../assets/images/pets/scarlet.png" 
+                          alt="Scarlet"
+                        >
+                        <p class="slider__elemName">Scarlet</p>
+                        <button 
+                          class="slider__elemBtn btn btn_invers" type="button">
+                          Learn more
+                        </button>
+                      </div>
+
+                      <div class="slider__elemWrapper">
+                        <img class="slider__elemImg" src="../../assets/images/pets/sophia.png" alt="Sophia">
+                        <p class="slider__elemName">Sophia</p><button class="slider__elemBtn btn btn_invers" type="button">
+                          Learn more
+                        </button>
+                      </div>
+
+                      <div class="slider__elemWrapper"><img class="slider__elemImg" src="../../assets/images/pets/timmy.png" alt="Timmy">
+                        <p class="slider__elemName">Timmy</p><button class="slider__elemBtn btn btn_invers" type="button">Learn more</button>
+                      </div>
+                    </li>
+                  </ul>
+              </div>
+              <button class="slider__control slider__controlRight" id="rightBtn" type="button">
+                <img src="../../assets/images/icons/right.svg" alt="right">
+              </button>
+            </div>
+            <a class="btn pets__btn" href="../pets/pets.html">
+              Get to know the rest
+            </a>
         </section>
         <section class="help" id="help">
             <h3 class="heading help__heading">How you can help <br> our shelter</h3>
