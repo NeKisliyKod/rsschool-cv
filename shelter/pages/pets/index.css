@@ -382,7 +382,7 @@ button {
 .ourFriend .ourFriends__controls .ourFriends__control:nth-child(3) .ourFriends__counter {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 46%;
   transform: translate(-50%) translateY(-50%);
   -webkit-transform: translate(-50%) translateY(-50%);
   -moz-transform: translate(-50%) translateY(-50%);
@@ -410,10 +410,19 @@ button {
   cursor: auto;
 }
 
+.friendListWrapper{
+  overflow: hidden;
+  max-height: 927px;
+}
 .friendList {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  transition: 1s ease-in-out;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -ms-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
 }
 
 .friendList .friendList__friend {
@@ -559,17 +568,16 @@ button {
   .ourFriend .ourFriends__controls {
     margin: 14px 0 0 0;
   }
+  .friendListWrapper{
+    max-height: 1390px;
+  }
   .friendList {
-    align-content: center;
     column-gap: 38px;
     max-width: 580px;
     margin: auto;
   }
   .friendList .friendList__friend {
     margin-bottom: 30px;
-  }
-  .friendList .friend:nth-child(n + 7) {
-    display: none;
   }
 }
 
@@ -592,7 +600,13 @@ button {
 
 @media (max-width: 800px) {
   .header {
-    padding: 30px 30px;
+    padding: 30px 0px;
+  }
+  .header__logo {
+    margin-left: 31px;
+  }
+  .header__nav {
+    margin-right: 30px;
   }
 }
 
@@ -605,6 +619,7 @@ button {
   }
   .header .header__logo{
     padding-left: 10px;
+    margin-left: 0px;
   }
   .mobileBtn {
     display: block;
@@ -679,13 +694,17 @@ button {
   }
   .popupCard .popupCard__btn{
     top: -54px;
-    right: -29px;
+    right: -40px;
   }
   .popupCard .popupCard__img {
     display: none;
   }
   .popupCard .popupCard__discr {
     max-width: 245px;
+  }
+  .popupCard .popupCard__discr .popupCard__personalInfo .popupCard__petInfo{
+    display: flex;
+    flex-wrap: wrap;
   }
   .popupCard .popupCard__discr .popupCard__name {
     text-align: center;
@@ -695,8 +714,6 @@ button {
   }
   .popupCard .popupCard__discr .popupCard__content {
     text-align: justify;
-    max-width: 220px;
-    margin: 0 auto 19px;
   }
 
   .ourFriend {
@@ -720,9 +737,6 @@ button {
   .friendList .friend {
     max-width: 270px;
     margin: 0 auto 30px;
-  }
-  .friendList .friend:nth-child(n + 4) {
-    display: none;
   }
 }
 

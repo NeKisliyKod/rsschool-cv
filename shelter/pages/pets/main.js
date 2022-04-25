@@ -183,15 +183,10 @@
                 ${pet.description}
               </p>
               <ul class="popupCard__personalInfo">
-                <li class="popupCard__petInfo">
-                  <span>Age:</span>  ${pet.age}
-                </li>
-                <li class="popupCard__petInfo">
-                  <span>Inoculations:</span>  ${pet.inoculations}</li>
-                <li class="popupCard__petInfo">
-                  <span>Diseases:</span>  ${pet.diseases}</li>
-                <li class="popupCard__petInfo">
-                  <span>Parasites:</span>  ${pet.parasites}</li>
+                <li class="popupCard__petInfo"><span>Age:</span>${pet.age}</li>
+                <li class="popupCard__petInfo"><span>Inoculations:</span> ${pet.inoculations}</li>
+                <li class="popupCard__petInfo"><span>Diseases:</span>${pet.diseases}</li>
+                <li class="popupCard__petInfo"><span>Parasites:</span>${pet.parasites}</li>
               </ul>
             </figcaption>
           </figure>
@@ -204,10 +199,10 @@
       card.addEventListener('click', (event) => {
         let name = '';
 
-        if(event.target.nodeName == 'DIV'){
+        if(event.target.nodeName == 'LI'){
           name = event.target.children[1].innerHTML;
         }else name = event.target.parentElement.children[1].innerHTML;
-
+        
         let pet = allPets.filter((elem) => elem.name === name)[0];
 
         PET_POPUP.innerHTML = popupGenerator(pet);
@@ -228,5 +223,119 @@
     })
   }
   Popup();
+
+
+  // Pagination
+
+  let pagination = (pets) => {
+    let petsColection = [];
+    let petsAmount = 48;
+    let pageNumber = 1;
+    let maxPageNumber;
+    let currentPosition = 0;
+    let transfornHeight = document.querySelector('#friendListWrapper').clientHeight;
+    let clientWidth = document.querySelector('.page').clientWidth;
+    const PETS_LIST = document.querySelector('.friendList');
+    const RIGHT_BTN = document.querySelector('#right');
+    const LEFT_BTN = document.querySelector('#left');
+    const LASTPAGE_BTN = document.querySelector('#last');
+    const FIRSTPAGE_BTN = document.querySelector('#first');
+    const CURRENT_PAGE = document.querySelector('#currentPage');
+
+    for(let i = 0; petsColection.length + 1 <= petsAmount; i++) {
+      petsColection.push(...pets)
+    }
+
+    let allPetsCard = petsColection.map((item) => {
+      let petCard = `
+        <li class="friend friendList__friend">
+          <img class="friend__img" src="${item.img}" alt="${item.name}">
+          <p class="friend__name">${item.name}</p>
+          <button class="friend__btn btn btn_invers" type="button">Learn more</button>
+        </li>
+      `
+      return petCard
+    });
+
+    let buttonDisabler = () => {
+      if(clientWidth >= 1280) {
+        const amountOfActivePets = 8;
+        maxPageNumber = allPetsCard.length / amountOfActivePets;
+      }else if(clientWidth <= 1280 && clientWidth >= 768) {
+        const amountOfActivePets = 6;
+        maxPageNumber = allPetsCard.length / amountOfActivePets;
+      }else if (clientWidth <= 767) {
+        const amountOfActivePets = 3;
+        maxPageNumber = allPetsCard.length / amountOfActivePets;
+      }
+
+      if(pageNumber == maxPageNumber){
+        RIGHT_BTN.classList.add('ourFriends__control_disabled');
+        LASTPAGE_BTN.classList.add('ourFriends__control_disabled');
+        RIGHT_BTN.removeEventListener('click', moveRight);
+        LASTPAGE_BTN.removeEventListener('click', lastPage)
+      }else if(pageNumber < maxPageNumber) {
+        RIGHT_BTN.classList.remove('ourFriends__control_disabled');
+        LASTPAGE_BTN.classList.remove('ourFriends__control_disabled');
+        RIGHT_BTN.addEventListener('click', moveRight);
+        LASTPAGE_BTN.addEventListener('click', lastPage)
+      }
+
+      if(pageNumber == 1){
+        LEFT_BTN.classList.add('ourFriends__control_disabled');
+        FIRSTPAGE_BTN.classList.add('ourFriends__control_disabled');
+        LEFT_BTN.removeEventListener('click', moveLeft);
+        FIRSTPAGE_BTN.addEventListener('click', firstPage)
+      }else if(pageNumber > 1) {
+        LEFT_BTN.classList.remove('ourFriends__control_disabled');
+        FIRSTPAGE_BTN.classList.remove('ourFriends__control_disabled');
+        LEFT_BTN.addEventListener('click', moveLeft);
+        FIRSTPAGE_BTN.addEventListener('click', firstPage)
+      }
+    }
+
+    let moveRight = () => {
+      PETS_LIST.style.transform = `translateY(${currentPosition += -transfornHeight}px)`;
+
+      pageNumber += 1;
+      CURRENT_PAGE.innerHTML = pageNumber;
+
+      buttonDisabler();
+    }
+
+    let moveLeft = () => {
+      PETS_LIST.style.transform = `translateY(${currentPosition +=  transfornHeight}px)`;
+
+      pageNumber -= 1;
+      CURRENT_PAGE.innerHTML = pageNumber;
+
+      buttonDisabler();
+    }
+
+    let lastPage = () => {
+      currentPosition = -transfornHeight * (maxPageNumber - 1);
+      PETS_LIST.style.transform = `translateY(${currentPosition}px)`;
+
+      pageNumber = maxPageNumber;
+      CURRENT_PAGE.innerHTML = pageNumber;
+
+      buttonDisabler();
+    }
+
+    let firstPage = () => {
+      currentPosition = 0;
+      PETS_LIST.style.transform = `translateY(${currentPosition}px)`;
+
+      pageNumber = 1;
+      CURRENT_PAGE.innerHTML = pageNumber;
+
+      buttonDisabler();
+    }
+
+    PETS_LIST.innerHTML = allPetsCard.join(' ');
+    Popup();
+    buttonDisabler();
+  }
+  pagination(allPets);
   
 })()

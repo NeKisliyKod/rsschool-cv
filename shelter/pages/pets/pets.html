@@ -49,42 +49,56 @@
     <main class="main page__main">
         <section class="ourFriend main__ourFriend">
             <h2 class="heading ourFriend__header">Our friends who <br> are looking for a house</h2>
-            <ul class="friendList ourFriend__friendList">
-                <li class="friend friendList__friend">
-                    <img class="friend__img" src="../../assets/images/pets/katrine.png" alt="Katrine">
-                    <p class="friend__name">Katrine</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
-                </li>
-                <li class="friend friendList__friend">
-                    <img class="friend__img" src="../../assets/images/pets/jennifer.png" alt="Jennifer">
-                    <p class="friend__name">Jennifer</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
-                </li>
-                <li class="friend friendList__friend">
-                    <img class="friend__img" src="../../assets/images/pets/woody.png" alt="Woody">
-                    <p class="friend__name">Woody</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
-                </li>
-                <li class="friend friendList__friend">
-                    <img class="friend__img" src="../../assets/images/pets/sophia.png" alt="Sophia">
-                    <p class="friend__name">Sophia</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
-                </li>
-                <li class="friend friendList__friend">
-                    <img class="friend__img" src="../../assets/images/pets/timmy.png" alt="Timmy">
-                    <p class="friend__name">Timmy</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
-                </li>
-                <li class="friend friendList__friend">
-                    <img class="friend__img" src="../../assets/images/pets/charly.png" alt="Charly">
-                    <p class="friend__name">Charly</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
-                </li>
-                <li class="friend friendList__friend">
-                    <img class="friend__img" src="../../assets/images/pets/Scarlet.png" alt="Scarlet">
-                    <p class="friend__name">Scarlett</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
-                </li>
-                <li class="friend friendList__friend">
-                    <img class="friend__img" src="../../assets/images/pets/freddie.png" alt="Freddie">
-                    <p class="friend__name">Freddie</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
-                </li>
-            </ul>
-            <div class="ourFriends__controls"><button class="ourFriends__control ourFriends__control_disabled">&lt;&lt;</button><button class="ourFriends__control ourFriends__control_disabled">&lt;</button>
-                <div class="ourFriends__control"> <span class="ourFriends__counter">1</span></div><button class="ourFriends__control">&gt;</button><button class="ourFriends__control">&gt;&gt;</button>
+            <div class="friendListWrapper" id="friendListWrapper">
+              <ul class="friendList ourFriend__friendList">
+                  <li class="friend friendList__friend">
+                      <img class="friend__img" src="../../assets/images/pets/katrine.png" alt="Katrine">
+                      <p class="friend__name">Katrine</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
+                  </li>
+                  <li class="friend friendList__friend">
+                      <img class="friend__img" src="../../assets/images/pets/jennifer.png" alt="Jennifer">
+                      <p class="friend__name">Jennifer</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
+                  </li>
+                  <li class="friend friendList__friend">
+                      <img class="friend__img" src="../../assets/images/pets/woody.png" alt="Woody">
+                      <p class="friend__name">Woody</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
+                  </li>
+                  <li class="friend friendList__friend">
+                      <img class="friend__img" src="../../assets/images/pets/sophia.png" alt="Sophia">
+                      <p class="friend__name">Sophia</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
+                  </li>
+                  <li class="friend friendList__friend">
+                      <img class="friend__img" src="../../assets/images/pets/timmy.png" alt="Timmy">
+                      <p class="friend__name">Timmy</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
+                  </li>
+                  <li class="friend friendList__friend">
+                      <img class="friend__img" src="../../assets/images/pets/charly.png" alt="Charly">
+                      <p class="friend__name">Charly</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
+                  </li>
+                  <li class="friend friendList__friend">
+                      <img class="friend__img" src="../../assets/images/pets/Scarlet.png" alt="Scarlet">
+                      <p class="friend__name">Scarlett</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
+                  </li>
+                  <li class="friend friendList__friend">
+                      <img class="friend__img" src="../../assets/images/pets/freddie.png" alt="Freddie">
+                      <p class="friend__name">Freddie</p><button class="friend__btn btn btn_invers" type="button">Learn more</button>
+                  </li>
+              </ul>
+            </div>
+            <div class="ourFriends__controls">
+              <button class="ourFriends__control ourFriends__control_disabled" id="first">
+                &lt;&lt;
+              </button>
+              <button class="ourFriends__control ourFriends__control_disabled" id="left">
+                &lt;
+              </button>
+              <div class="ourFriends__control"> 
+                <span class="ourFriends__counter" id="currentPage">
+                  1
+                </span>
+              </div>
+              <button class="ourFriends__control" id="right">&gt;</button>
+              <button class="ourFriends__control" id="last">&gt;&gt;</button>
             </div>
         </section>
     </main>

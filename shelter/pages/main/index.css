@@ -800,6 +800,8 @@ button {
 
   .popupCard .popupCard__discr .popupCard__personalInfo .popupCard__petInfo{
     margin-bottom: 6px;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .slider .slider__gallery .slider__images .slider__elem{
@@ -953,13 +955,17 @@ button {
   }
   .popupCard .popupCard__btn{
     top: -54px;
-    right: -29px;
+    right: -40px;
   }
   .popupCard .popupCard__img {
     display: none;
   }
   .popupCard .popupCard__discr {
     max-width: 245px;
+  }
+  .popupCard .popupCard__discr .popupCard__personalInfo .popupCard__petInfo{
+    display: flex;
+    flex-wrap: wrap;
   }
   .popupCard .popupCard__discr .popupCard__name {
     text-align: center;

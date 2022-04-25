@@ -264,22 +264,10 @@ for(let anchor of anchors){
                 ${pet.description}
               </p>
               <ul class="popupCard__personalInfo">
-                <li class="popupCard__petInfo">
-                  <span>Age:</span>
-                  ${pet.age}
-                </li>
-                <li class="popupCard__petInfo">
-                  <span>Inoculations:</span>
-                  ${pet.inoculations}
-                </li>
-                <li class="popupCard__petInfo">
-                  <span>Diseases:</span>
-                  ${pet.diseases}
-                </li>
-                <li class="popupCard__petInfo">
-                  <span>Parasites:</span>
-                  ${pet.parasites}
-                </li>
+                <li class="popupCard__petInfo"><span>Age:</span>${pet.age}</li>
+                <li class="popupCard__petInfo"><span>Inoculations:</span>${pet.inoculations}</li>
+                <li class="popupCard__petInfo"><span>Diseases:</span>${pet.diseases}</li>
+                <li class="popupCard__petInfo"><span>Parasites:</span>${pet.parasites}</li>
               </ul>
             </figcaption>
           </figure>
@@ -314,5 +302,5 @@ for(let anchor of anchors){
     })
   }
   Popup(); 
-  
+  console.dir(document.querySelector('#t'))
 })()
