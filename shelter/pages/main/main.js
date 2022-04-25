@@ -13,13 +13,12 @@ for(let anchor of anchors){
       });
     }
 
-    if(event.target.className.includes('mainContent__btn')) {
+    if(!mobileNav.className.includes('nav_active')) {
       smoothFlow(event, allAnchors)
     }else {
       mobileBtnSwitcher();
       smoothFlow(event, allAnchors)
     }
-    
   }
 }
 
@@ -28,24 +27,25 @@ for(let anchor of anchors){
   const mobileNavBtn = document.querySelector('.mobileBtn');
   const mobileNav = document.querySelector('.nav');
   const body = document.querySelector('.page');
-  const overlay = document.querySelector('.overlay');
+  const OVERLAY = document.querySelector('.overlay');
+
 
   const input = () => {
-    setTimeout(() => mobileNav.classList.toggle('nav_active'), 10);
-    mobileNav.style.display = 'flex';
-    mobileNavBtn.classList.toggle('mobileBtn_active');
-    body.classList.toggle('page_unactive');
-    overlay.style.display = 'block';
+    setTimeout(() => mobileNav.style.display = 'flex', 4);
+    mobileNav.classList.add('nav_active');
+    mobileNavBtn.classList.add('mobileBtn_active');
+    body.classList.add('page_unactive');
+    OVERLAY.classList.add('overlay_active');
   }
   const output = () => {
     setTimeout(() => mobileNav.style.display = 'none', 400);
-    mobileNav.classList.toggle('nav_active');
-    mobileNavBtn.classList.toggle('mobileBtn_active');
-    body.classList.toggle('page_unactive');
-    overlay.style.display = 'none';
+    mobileNav.classList.remove('nav_active');
+    mobileNavBtn.classList.remove('mobileBtn_active');
+    body.classList.remove('page_unactive');
+    OVERLAY.classList.remove('overlay_active');
   }
   const mobileBtnSwitcher = () => {
-    mobileNav.className.includes('nav_active') 
+    mobileNav.className.includes('nav_active')
     ? 
     output()
     : 
@@ -54,9 +54,22 @@ for(let anchor of anchors){
   mobileNavBtn.onclick = () => {
     mobileBtnSwitcher()
   }
-  overlay.onclick = () => {
-    mobileBtnSwitcher()
+  OVERLAY.onclick = () => {
+    let popup = document.querySelector('.popup');
+
+    if(mobileNav.className.includes('nav_active')){
+      setTimeout(() => mobileNav.style.display = 'none', 400);
+      mobileNav.classList.remove('nav_active');
+      mobileNavBtn.classList.remove('mobileBtn_active');
+    }else if(popup){
+      popup.classList.remove('popup_active');
+    }
+
+    body.classList.remove('page_unactive');
+    OVERLAY.classList.remove('overlay_active');
   }
+
+  // Randon slider
 
   let allPets = [
     {
@@ -143,12 +156,11 @@ for(let anchor of anchors){
       "breed": "Jack Russell Terrier",
       "description": "This cute boy, Charly, is three years old and he likes adults and kids. He isn’t fond of many other dogs, so he might do best in a single dog home. Charly has lots of energy, and loves to run and play. We think a fenced yard would make him very happy.",
       "age": "8 years",
-      "inoculations": ["bordetella bronchiseptica", "leptospirosis"],
+      "inoculations": ["bordetella bronchiseptica",  "leptospirosis"],
       "diseases": ["deafness", "blindness"],
       "parasites": ["lice", "fleas"]
     }
   ];
-
 
   let generatePet = (pets, number) => {
     let pet = `
@@ -164,11 +176,11 @@ for(let anchor of anchors){
   }
 
   let randomSlides = (childrenNum) => {
-    let leftSlide = document.querySelector('#slidesList').children[childrenNum];
+    let randomSlide = document.querySelector('#slidesList').children[childrenNum];
     let defaultSlide = document.querySelector('#slidesList').children[1];
     let prevNames = '';
 
-    leftSlide.innerHTML = ''
+    randomSlide.innerHTML = ''
     
     for(let i = 0; i <= defaultSlide.children.length - 1; i ++){
       prevNames += defaultSlide.children[i].children[1].innerHTML;
@@ -180,11 +192,14 @@ for(let anchor of anchors){
           return item
         }
       })
-      let random = Math.floor(Math.random() * 3);
+      let random = Math.floor(Math.random() * sortedPets.length);
       prevNames += sortedPets[random].name;
-      leftSlide.innerHTML += generatePet(sortedPets, random)
+      randomSlide.innerHTML += generatePet(sortedPets, random)
     }
   }
+  randomSlides(0);
+  randomSlides(2);
+
   
 
   let slider = () => {
@@ -219,11 +234,73 @@ for(let anchor of anchors){
 
       LEFT_BTN.addEventListener('click', moveLeft);
       RIGHT_BTN.addEventListener('click', moveRight);
+      Popup();
 
     })
   }
   slider();
 
-  
+  //Popup
 
+  let Popup = () => {
+    let cards = document.querySelectorAll('.slider__elemWrapper');
+    const PET_POPUP = document.querySelector('#petPopup');
+    let popupGenerator = (pet) => {
+      let petPopup = `
+        <div class="popup popup_active">
+          <figure class="popupCard">
+            <button class="popupCard__btn" type="button">
+              <img src="../../assets/images/icons/close.svg" alt="close">
+            </button>
+            <img class="popupCard__img" src="${pet.img}" alt="${pet.name}">
+            <figcaption class="popupCard__discr">
+              <h4 class="popupCard__name">
+                ${pet.name}
+              </h4>
+              <p class="popupCard__breed">
+                ${pet.type} - ${pet.breed}
+              </p>
+              <p class="popupCard__content">
+                ${pet.description}
+              </p>
+              <ul class="popupCard__personalInfo">
+                <li class="popupCard__petInfo"><span>Age:</span>${pet.age}</li>
+                <li class="popupCard__petInfo"><span>Inoculations:</span>${pet.inoculations}</li>
+                <li class="popupCard__petInfo"><span>Diseases:</span>${pet.diseases}</li>
+                <li class="popupCard__petInfo"><span>Parasites:</span>${pet.parasites}</li>
+              </ul>
+            </figcaption>
+          </figure>
+        </div>
+      `
+      return petPopup;
+    }
+
+    cards.forEach((card) => {
+      card.addEventListener('click', (event) => {
+        let name = '';
+
+        if(event.target.nodeName == 'DIV'){
+          name = event.target.children[1].innerHTML;
+        }else name = event.target.parentElement.children[1].innerHTML;
+
+        let pet = allPets.filter((elem) => elem.name === name)[0];
+
+        PET_POPUP.innerHTML = popupGenerator(pet);
+
+        OVERLAY.classList.add('overlay_active');
+        body.classList.add('page_unactive');
+
+        let closeBtn = document.querySelector('.popupCard__btn');
+        
+        closeBtn.addEventListener('click', () => {
+          document.querySelector('.popup').classList.remove('popup_active');
+          body.classList.remove('page_unactive');
+          OVERLAY.classList.remove('overlay_active');
+        })
+      })
+    })
+  }
+  Popup(); 
+  console.dir(document.querySelector('#t'))
 })()

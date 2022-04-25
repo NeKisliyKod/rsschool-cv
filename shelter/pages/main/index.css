@@ -47,11 +47,130 @@ button {
 .overlay{
   display: none;
   width: 100%;
-  height: 100vh;
-  background-color: #7b7b7ba8;
+  height: 100%;
+  background-color: rgba(123, 123, 123, 0.61);
   z-index: 6;
   position: fixed;
   top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.overlay_active{
+  display: block;
+}
+.overlay:hover ~ .petPopup .popupCard .popupCard__btn{
+  cursor: pointer;
+  background-color: #F1CDB3;
+  border: none;
+}
+
+.popup{
+  display: none;
+  width: 900px;
+  background-color: #fff;
+  border-radius: 9px;
+  position: fixed;
+  z-index: 10;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -moz-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  -o-transform: translateY(-50%) translateX(-50%);
+}
+.popup_active{
+  display: block;
+}
+.popupCard{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.popupCard .popupCard__btn{
+  top: -52px;
+  width: 50px;
+  height: 50px;
+  right: -41px;
+  position: absolute;
+  border: 2px solid #F1CDB3;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+.popupCard .popupCard__btn:hover{
+  cursor: pointer;
+  background-color: #F1CDB3;
+  border: none;
+}
+.popupCard .popupCard__btn img{
+  margin-top: 5px;
+}
+.popupCard .popupCard__img {
+  width: 100%;
+  height: auto;
+  flex: 0 0 54%;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+.popupCard .popupCard__discr {
+  font-family: Georgia, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  max-width: 350px;
+  margin-right: 20px;
+}
+.popupCard .popupCard__discr .popupCard__name {
+  font-size: 35px;
+  line-height: 130%;
+  margin-bottom: 10px;
+  margin-top: 50px;
+  letter-spacing: 2px;
+}
+.popupCard .popupCard__discr .popupCard__breed {
+  font-size: 20px;
+  line-height: 115%;
+  margin-bottom: 40px;
+  letter-spacing: 1.2px;
+}
+.popupCard .popupCard__discr .popupCard__content {
+  font-size: 15px;
+  line-height: 113%;
+  letter-spacing: .9px;
+  margin-bottom: 40px;
+}
+.popupCard .popupCard__discr .popupCard__personalInfo {
+  font-size: 15px;
+  line-height: 110%;
+  margin-left: 15px;
+  letter-spacing: 1.8px;
+}
+.popupCard .popupCard__discr .popupCard__personalInfo .popupCard__petInfo{
+  margin-bottom: 11px;
+  position: relative
+}
+.popupCard .popupCard__discr .popupCard__personalInfo .popupCard__petInfo::before{
+  content: '';
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  left: -15px;
+  top: 35%;
+  background-color: #F1CDB3;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+.popupCard .popupCard__discr .popupCard__personalInfo .popupCard__petInfo span{
+  font-weight: 700;
 }
 
 .logo .logo__name {
@@ -170,11 +289,6 @@ button {
 .nav {
   display: flex;
   font-family: Arial, sans-serif;
-  transition: .3s ease-in-out;
-  -webkit-transition: .3s ease-in-out;
-  -moz-transition: .3s ease-in-out;
-  -ms-transition: .3s ease-in-out;
-  -o-transition: .3s ease-in-out;
 }
 
 .nav .logo__mobile {
@@ -412,6 +526,7 @@ button {
 
 .slider .slider__gallery .slider__images .slider__elem .slider__elemWrapper:hover {
   background-color: #fff;
+  cursor: pointer;
 }
 
 .slider .slider__gallery .slider__images .slider__elem .slider__elemWrapper:hover .slider__elemBtn {
@@ -664,6 +779,31 @@ button {
 }
 
 @media (max-width: 1279px) {
+  .popup{
+    width: 630px;
+  }
+  .popupCard .popupCard__discr {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .popupCard .popupCard__discr .popupCard__name {
+    margin-top: 10px;
+  }
+  .popupCard .popupCard__discr .popupCard__breed {
+    margin-bottom: 19px;
+  }
+  .popupCard .popupCard__discr .popupCard__content {
+    font-size: 13px;
+    line-height: 110%;
+    margin-bottom: 19px;
+  }
+
+  .popupCard .popupCard__discr .popupCard__personalInfo .popupCard__petInfo{
+    margin-bottom: 6px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .slider .slider__gallery .slider__images .slider__elem{
     justify-content: space-around;
   }
@@ -806,6 +946,38 @@ button {
 }
 
 @media (max-width: 767px) {
+  .popup{
+    min-width: 240px;
+    width: fit-content;
+  }
+  .popupCard{
+    padding: 10px 0;
+  }
+  .popupCard .popupCard__btn{
+    top: -54px;
+    right: -40px;
+  }
+  .popupCard .popupCard__img {
+    display: none;
+  }
+  .popupCard .popupCard__discr {
+    max-width: 245px;
+  }
+  .popupCard .popupCard__discr .popupCard__personalInfo .popupCard__petInfo{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .popupCard .popupCard__discr .popupCard__name {
+    text-align: center;
+  }
+  .popupCard .popupCard__discr .popupCard__breed {
+    text-align: center;
+  }
+  .popupCard .popupCard__discr .popupCard__content {
+    text-align: justify;
+    max-width: 220px;
+    margin: 0 auto 19px;
+  }
   .header {
     padding: 30px 10px;
   }
@@ -830,6 +1002,8 @@ button {
     background-color: #292929;
     padding: 30px 10px;
     height: 100vh;
+    animation-name: outputMobileMenu;
+    animation-duration: .4s;
   }
   .nav .logo__mobile {
     display: block;
@@ -847,9 +1021,29 @@ button {
     margin-bottom: 40px;
   }
   .nav_active {
-    display: flex;
     right: 0;
+    animation-name: inputMobileMenu;
+    animation-duration: .4s;
   }
+  @keyframes inputMobileMenu {
+    from {
+      right: -320px;
+    }
+  
+    to{
+      right: 0px;
+    }
+  }
+  @keyframes outputMobileMenu {
+    from {
+      right: 0px;
+    }
+  
+    to{
+      right: -320px;
+    }
+  }
+
   .slider .slider__gallery .slider__images .slider__elem .slider__elemWrapper:nth-child(n + 2) {
     display: none;
   } 
