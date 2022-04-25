@@ -302,5 +302,4 @@ for(let anchor of anchors){
     })
   }
   Popup(); 
-  console.dir(document.querySelector('#t'))
 })()
