@@ -243,7 +243,7 @@
     const CURRENT_PAGE = document.querySelector('#currentPage');
 
     for(let i = 0; petsColection.length + 1 <= petsAmount; i++) {
-      petsColection.push(...pets.sort(() => Math.random() - 0.5))
+      petsColection.push(...pets)
     }
 
     let allPetsCard = petsColection.map((item) => {
